@@ -1,0 +1,42 @@
+const passport=require('passport')
+const LocalStrategy=require('passport-local').Strategy
+const passportJWT=require('passport-jwt')
+const bcrypt=require('bcryptjs')
+const {User}=require('../models')
+
+module.exports=app=>{
+  app.use(passport.initialize())
+  app.use(passport.session())
+
+  passport.use(new LocalStrategy({
+    usernameField:'account'
+  },
+  (account, password, cb)=> {
+    User.findOne({ where: {account} })
+      .then(user=> {
+      if (!user) {
+         return cb(null, false,{message:'Account name or password is incorrect'})
+         }
+      return bcrypt.compare(password,user.password).then(isMatch=>{
+        if(!isMatch) {
+          return cb(null, false,{message:'Account name  or password is incorrect'})
+        }
+        return cb(null,user)
+      })
+    });
+  }
+))
+
+const JWTStrategy=passportJWT.Strategy
+const ExtractJwt =passportJWT.ExtractJwt
+const jwtOption={
+  jwtFromRequest:ExtractJwt.fromAuthHeaderAsBearerToken(),
+  secretOrKey:process.env.JWT_SECRET
+  }
+const jwtStrategy=new JWTStrategy(jwtOption,(jwtPayload,cb)=>{
+  User.findByPk(jwtPayload.id)
+  .then(user=>cb(null,user))
+  .catch(err=>cb(err))
+})
+passport.use(jwtStrategy)
+}
