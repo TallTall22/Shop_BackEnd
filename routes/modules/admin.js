@@ -18,4 +18,9 @@ router.delete('/products/:id',adminController.deleteProduct)
 router.post('/products',adminController.postProduct)
 router.get('/products',adminController.getProducts)
 
+//order
+router.get('/orders',adminController.getOrders)
+router.get('/orders/:id',adminController.getOrder)
+router.patch('/orders/:id',adminController.patchOrder)
+
 module.exports=router

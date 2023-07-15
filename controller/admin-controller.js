@@ -1,4 +1,4 @@
-const {User,Product,Category}=require('../models')
+const {User,Product,Category,Order,Cart}=require('../models')
 const {imgurHandler}=require('../helpers/file-helper')
 const adminController={
   getProducts:(req,res,next)=>{
@@ -108,6 +108,45 @@ const adminController={
       name
     })
     .then(category=>res.json({status:'success',category}))
+    .catch(err=>next(err))
+  },
+  getOrders:(req,res,next)=>{
+    Order.findAll({
+      raw:true,
+      nest:true,
+      includes:User
+    })
+    .then(orders=>res.json({status:'success',orders}))
+    .catch(err=>next(err))
+  },
+  getOrder:(req,res,next)=>{
+    const id=req.params.id
+    Promise.all([
+      Order.findByPk(id,{
+        raw:true,
+        nest:true
+      }),
+      Cart.findAll({
+        where:{
+          orderId:id
+        },
+        raw:true,
+        nest:true
+      })
+    ])
+      .then(([order,carts])=>{
+        res.json({status:'success',order,carts})
+      })
+    .catch(err=>next(err))
+  },
+  patchOrder:(req,res,next)=>{
+    const id=req.params.id
+    Order.findByPk(id)
+    .then(order=>{
+      if(!order)throw new Error('The order is not exist')
+      return order.update({where:{isSent:true}})
+    })
+    .then(order=>res.json({status:'success',order}))
     .catch(err=>next(err))
   }
 }
