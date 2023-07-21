@@ -2,18 +2,29 @@ const {User,Product,Category,Order,Cart}=require('../models')
 const {imgurHandler}=require('../helpers/file-helper')
 const adminController={
   getProducts:(req,res,next)=>{
-    Product.findAll({
-      raw:true,
-      nest:true
-    })
-    .then(products=>res.json({status:'success',products}))
+    Promise.all([
+      Product.findAll({
+        where:{isSelling:true},
+        include:Category,
+        raw:true,
+        nest:true
+      }),
+      Product.findAll({
+        where:{isSelling:false},
+        include:Category,
+        raw:true,
+        nest:true
+      })
+    ])
+    .then(([sellingProducts,unsellingProducts])=>res.json({status:'success',sellingProducts,unsellingProducts}))
     .catch(err=>next(err))
   },
   getProduct:(req,res,next)=>{
     const id=req.params.id
     Product.findByPk(id,{
       raw:true,
-      nest:true
+      nest:true,
+      include:Category
     })
     .then(product=>res.json({status:'success',product}))
     .catch(err=>next(err))
@@ -27,18 +38,19 @@ const adminController={
     .catch(err=>next(err))
   },
   postProduct:(req,res,next)=>{
-    const {name,price,description,quantity,image,categoryId,isSelling}=req.body
+    const {name,price,description,quantity,categoryId,isSelling}=req.body
+    const {file}=req
     if(!name||!price) throw new Error('Name and Price are required')
-    imgurHandler(image)
+    imgurHandler(file)
     .then(filePath=>{
-      return Product.create({
+      Product.create({
       name,
       price,
       description,
       quantity,
-      image:filePath,
       categoryId,
-      isSelling
+      isSelling,
+      image:filePath||null
     }) 
     })
     .then(createdProduct=>res.json({status:'success',product:createdProduct}))
@@ -46,20 +58,27 @@ const adminController={
   },
   editProduct:(req,res,next)=>{
     const id=req.params.id
-    Product.findByPk(id,{
+    Promise.all([
+      Product.findByPk(id,{
+      raw:true,
+      nest:true
+    }),
+    Category.findAll({
       raw:true,
       nest:true
     })
-    .then(product=>res.json({status:'success',product}))
+    ])
+    .then(([product,categories])=>res.json({status:'success',product,categories}))
     .catch(err=>next(err))
   },
   putProduct:(req,res,next)=>{
     const id=req.params.id
-    const {name,price,description,quantity,image,categoryId,isSelling}=req.body
+    const {name,price,description,quantity,categoryId,isSelling}=req.body
+    const {file}=req
     if(!name||!price) throw new Error('Name and Price are required')
     Promise.all([
       Product.findByPk(id),
-      imgurHandler(image)
+      imgurHandler(file)
     ])
     .then(([product,filePath])=>{
       return product.update({
@@ -73,6 +92,16 @@ const adminController={
     }) 
     })
     .then(ediitedProduct=>res.json({status:'success',product:ediitedProduct}))
+    .catch(err=>next(err))
+  },
+  patchProduct:(req,res,next)=>{
+    const id=req.params.id
+    Product.findByPk(id)
+    .then(product=>{
+      if(!product)throw new Error('The product is not exist')
+      return product.update({isSelling:!product.isSelling})
+    })
+    .then(product=>res.json({status:'success',product}))
     .catch(err=>next(err))
   },
   deleteProduct:(req,res,next)=>{
@@ -114,7 +143,7 @@ const adminController={
     Order.findAll({
       raw:true,
       nest:true,
-      includes:User
+      include:User
     })
     .then(orders=>res.json({status:'success',orders}))
     .catch(err=>next(err))
@@ -144,7 +173,7 @@ const adminController={
     Order.findByPk(id)
     .then(order=>{
       if(!order)throw new Error('The order is not exist')
-      return order.update({where:{isSent:true}})
+      return order.update({isSent:true})
     })
     .then(order=>res.json({status:'success',order}))
     .catch(err=>next(err))

@@ -27,7 +27,44 @@ module.exports = {
       address:'台北市信義區市府路45號',
       created_at: new Date(),
       updated_at: new Date()
-    }])
+    },
+    {
+      email: 'buyer789@example.com',
+      password: await bcrypt.hash('titaner', 10),
+      is_admin: false,
+      account:'buyer789',
+      name: '張良',
+      gender:'男',
+      phone:'0912345679',
+      address:'台北市士林區至善路二段221號',
+      created_at: new Date(),
+      updated_at: new Date()
+    },
+    {
+      email: 'buyer012@example.com',
+      password: await bcrypt.hash('titaner', 10),
+      is_admin: false,
+      account:'buyer012',
+      name: '張麗華',
+      gender:'女',
+      phone:'0934567890',
+      address:'臺北市士林區福林路60號',
+      created_at: new Date(),
+      updated_at: new Date()
+    },
+    {
+      email: 'buyer345@example.com',
+      password: await bcrypt.hash('titaner', 10),
+      is_admin: false,
+      account:'buyer345',
+      name: '武曌',
+      gender:'女',
+      phone:'0987654321',
+      address:'台北市中正區重慶南路一段122號',
+      created_at: new Date(),
+      updated_at: new Date()
+    }
+  ])
   },
 
   async down (queryInterface, Sequelize) {
