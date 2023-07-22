@@ -3,10 +3,10 @@ if(process.env.NODE_ENV!=='production'){
 }
 
 const express=require('express')
-const app=express()
 const session=require('express-session')
 const usePassport=require('./config/passport')
 const routes=require('./routes')
+const app=express()
 const port=3001
 
 //use body-parser
@@ -17,6 +17,9 @@ app.use(express.json())
 
 //session
 app.use(session({secret:process.env.SESSION_SECRET,resave:false,saveUninitialized:true}))
+
+//use passport
+usePassport(app)
 
 //CORS
 app.use((req, res, next) => {
@@ -37,8 +40,7 @@ app.use((req, res, next) => {
   }
 });
 
-//use passport
-usePassport(app)
+
 
 //routes
 app.use('/api',routes)

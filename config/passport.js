@@ -2,7 +2,7 @@ const passport=require('passport')
 const LocalStrategy=require('passport-local').Strategy
 const passportJWT=require('passport-jwt')
 const bcrypt=require('bcryptjs')
-const {User}=require('../models')
+const {User,Product}=require('../models')
 
 module.exports=app=>{
   app.use(passport.initialize())
@@ -27,16 +27,20 @@ module.exports=app=>{
   }
 ))
 
-const JWTStrategy=passportJWT.Strategy
-const ExtractJwt =passportJWT.ExtractJwt
-const jwtOption={
-  jwtFromRequest:ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey:process.env.JWT_SECRET
-  }
+const JWTStrategy = passportJWT.Strategy
+const ExtractJwt = passportJWT.ExtractJwt
+const jwtOption = {
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  secretOrKey: process.env.JWT_SECRET
+}
+
 const jwtStrategy=new JWTStrategy(jwtOption,(jwtPayload,cb)=>{
-  User.findByPk(jwtPayload.id)
-  .then(user=>cb(null,user))
-  .catch(err=>cb(err))
+    User.findByPk(jwtPayload.id,{
+      include:{model:Product,as:'FavoritedProduct'}
+    })
+    .then(user=>cb(null,user))
+    .catch(err=>cb(err))
 })
+
 passport.use(jwtStrategy)
 }
