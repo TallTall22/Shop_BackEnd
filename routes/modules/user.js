@@ -9,4 +9,5 @@ router.post('/signin',passport.authenticate('local',{session:false}),userControl
 router.delete('/favorites/:productId',authenticated,userController.deleteFavorite)
 router.post('/favorites',authenticated,userController.addFavorite)
 router.get('/favorites',authenticated,userController.getFavorites)
+
 module.exports=router

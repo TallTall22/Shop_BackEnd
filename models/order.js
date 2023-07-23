@@ -20,7 +20,10 @@ module.exports = (sequelize, DataTypes) => {
     amount: DataTypes.INTEGER,
     isPaid: DataTypes.BOOLEAN,
     isSent: DataTypes.BOOLEAN,
-    isCheck: DataTypes.BOOLEAN
+    isCheck: DataTypes.BOOLEAN,
+    address:DataTypes.STRING,
+    phone:DataTypes.STRING,
+    paidMethod:DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Order',

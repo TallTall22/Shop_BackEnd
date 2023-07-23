@@ -3,50 +3,64 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    const users = await queryInterface.sequelize.query(
+    const userId = await queryInterface.sequelize.query(
       'Select id from Users;',
       { type: queryInterface.sequelize.QueryTypes.SELECT }
     )
+
+    const userAddress = await queryInterface.sequelize.query(
+      'Select address from Users;',
+      { type: queryInterface.sequelize.QueryTypes.SELECT }
+    )
+
+    const userPhone = await queryInterface.sequelize.query(
+      'Select phone from Users;',
+      { type: queryInterface.sequelize.QueryTypes.SELECT }
+    )
+
     await queryInterface.bulkInsert('Orders',[{
-      user_id:users[1].id,
+      user_id:userId[1].id,
       amount:3000+Math.floor(Math.random()*100)*100,
       is_paid:true,
       is_sent:false,
       is_check:true,
-      address:users[1].address,
-      phone:users[1].phone,
+      address:userAddress[1].address,
+      phone:userPhone[1].phone,
+      paid_method:'信用卡支付',
       created_at: new Date(),
       updated_at: new Date()
     }, {
-      user_id:users[2].id,
+      user_id:userId[2].id,
       amount:3000+Math.floor(Math.random()*100)*100,
       is_paid:false,
       is_sent:false,
       is_check:false,
-      address:users[2].address,
-      phone:users[2].phone,
+      address:userAddress[2].address,
+      phone:userPhone[2].phone,
       created_at: new Date(),
       updated_at: new Date()
     },
      {
-      user_id:users[3].id,
+      user_id:userId[3].id,
       amount:3000+Math.floor(Math.random()*100)*100,
-      is_paid:true,
+      is_paid:false,
       is_sent:false,
       is_check:true,
-      address:users[3].address,
-      phone:users[3].phone,
+      address:userAddress[3].address,
+      phone:userPhone[3].phone,
+      paid_method:'貨到付款',
       created_at: new Date(),
       updated_at: new Date()
     },
     {
-      user_id:users[4].id,
+      user_id:userId[4].id,
       amount:3000+Math.floor(Math.random()*100)*100,
       is_paid:true,
       is_sent:true,
       is_check:true,
-      address:users[4].address,
-      phone:users[4].phone,
+      address:userAddress[4].address,
+      phone:userPhone[4].phone,
+      paid_method:'信用卡支付',
       created_at: new Date(),
       updated_at: new Date()
     }

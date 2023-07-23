@@ -3,10 +3,13 @@ const router=express.Router()
 const {ErrorHandler}=require('../middleware/error-handler')
 const user=require('./modules/user')
 const admin=require('./modules/admin')
+const cart=require('./modules/cart')
 const product=require('./modules/product')
-
+const {authenticated,authenticatedAdmin}=require('../middleware/auth')
 router.use('/products',product)
 router.use('/users',user)
-router.use('/admin',admin)
+router.use('/carts',authenticated,cart)
+router.use('/admin',authenticated,authenticatedAdmin,admin)
 router.use('/',ErrorHandler)
+
 module.exports=router
