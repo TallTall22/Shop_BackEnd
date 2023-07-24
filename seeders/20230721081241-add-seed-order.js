@@ -18,6 +18,11 @@ module.exports = {
       { type: queryInterface.sequelize.QueryTypes.SELECT }
     )
 
+    const userName = await queryInterface.sequelize.query(
+      'Select name from Users;',
+      { type: queryInterface.sequelize.QueryTypes.SELECT }
+    )
+
     await queryInterface.bulkInsert('Orders',[{
       user_id:userId[1].id,
       amount:3000+Math.floor(Math.random()*100)*100,
@@ -26,6 +31,7 @@ module.exports = {
       is_check:true,
       address:userAddress[1].address,
       phone:userPhone[1].phone,
+      name:userName[1].name,
       paid_method:'信用卡支付',
       created_at: new Date(),
       updated_at: new Date()
@@ -37,6 +43,7 @@ module.exports = {
       is_check:false,
       address:userAddress[2].address,
       phone:userPhone[2].phone,
+      name:userName[2].name,
       created_at: new Date(),
       updated_at: new Date()
     },
@@ -48,6 +55,7 @@ module.exports = {
       is_check:true,
       address:userAddress[3].address,
       phone:userPhone[3].phone,
+      name:userName[3].name,
       paid_method:'貨到付款',
       created_at: new Date(),
       updated_at: new Date()
@@ -60,6 +68,7 @@ module.exports = {
       is_check:true,
       address:userAddress[4].address,
       phone:userPhone[4].phone,
+      name:userName[4].name,
       paid_method:'信用卡支付',
       created_at: new Date(),
       updated_at: new Date()

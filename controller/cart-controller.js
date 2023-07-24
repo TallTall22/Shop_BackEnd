@@ -114,7 +114,7 @@ const cartControlller={
  },
 checkOrder: async (req, res, next) => {
   const { orderId } = req.params;
-  const { amount, address, phone, paidMethod } = req.body;
+  const { amount, address, phone,name, paidMethod } = req.body;
 
   try {
     const [order, carts] = await Promise.all([
@@ -141,9 +141,9 @@ checkOrder: async (req, res, next) => {
     }
 
     if (paidMethod === '信用卡') {
-      await order.update({ isCheck: true, isPaid: true, amount, address, phone, paidMethod });
+      await order.update({ isCheck: true, isPaid: true, amount, address, phone,name, paidMethod });
     } else {
-      await order.update({ isCheck: true, amount, address, phone, paidMethod });
+      await order.update({ isCheck: true, amount, address, phone,name, paidMethod });
     }
 
     return res.json({ status: 'success', order });

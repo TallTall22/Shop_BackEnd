@@ -1,4 +1,5 @@
 'use strict';
+const { date } = require('faker/lib/locales/ar');
 const {
   Model
 } = require('sequelize');
@@ -23,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     isCheck: DataTypes.BOOLEAN,
     address:DataTypes.STRING,
     phone:DataTypes.STRING,
-    paidMethod:DataTypes.STRING
+    paidMethod:DataTypes.STRING,
+    name:DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Order',

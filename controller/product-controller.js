@@ -1,21 +1,45 @@
 const {Product,Category}=require('../models')
 const {getOffset,getPagination}=require('../helpers/pagination-helper')
+const { Op } = require('sequelize')
 const productController={
   getProducts:(req,res,next)=>{
     DEFAULT_LIMIT=9
+    const order=req.query.order||'id'
     const categoryId=Number(req.query.categoryId)||''
+    const minPrice=Number(req.query.minPrice)||0
+    const maxPrice=Number(req.query.maxPrice)||''
+    const keyword=req.query.keyword||''
     const limit=Number(req.query.limit)||DEFAULT_LIMIT
     const page=Number(req.query.page)||1
     const offset=getOffset(limit,page)
     Promise.all([
       Product.findAndCountAll({
       where:{
-        ...categoryId?{categoryId}:{},
-        isSelling:true
+        [Op.and]:[
+          categoryId?{categoryId}:{},
+          {isSelling:true},
+          keyword
+          ?{
+            [Op.or]:[
+              { name: { [Op.like]: `%${keyword}%` } }
+            ]
+          }: {},
+          maxPrice
+          ?{
+            price:{
+              [Op.between]:[minPrice,maxPrice]
+            }
+          }:{
+            price:{
+              [Op.gte]:minPrice
+            }
+          }
+        ]
       },
       include:Category,
       limit,
       offset,
+      order:[[`${order}`,'asc']],
       raw:true,
       nest:true
     }),
