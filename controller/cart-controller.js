@@ -148,7 +148,7 @@ checkOrder: async (req, res, next) => {
 
     return res.json({ status: 'success', order });
   } catch (err) {
-    return next(err);
+     next(err);
   }
 }
 }

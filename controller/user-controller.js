@@ -1,4 +1,4 @@
-const {User,Favorite}=require('../models')
+const {User,Favorite,Product,Order,Cart}=require('../models')
 const jwt=require('jsonwebtoken')
 const bcrypt=require('bcryptjs')
 
@@ -99,7 +99,37 @@ const userController={
     const FavoritedProduct=user.FavoritedProduct
     if(!FavoritedProduct[0]) return res.json({status:'success',message:'您還沒有收藏任何商品!'})
     return res.json({status:'success',FavoritedProduct})
+  },
+  getOrders:async(req,res,next)=>{
+    const user=req.user
+    try{
+      const orders=await Order.findAll({
+      where:{
+        isCheck:true,
+        userId:user.id
+      },
+      order:[['updatedAt','desc']],
+      raw:true,
+      nest:true
+    })
+    if(!orders[0]) return res.json({status:'success',message:'您還沒有購買紀錄'})
+     const ordersWithCarts = await Promise.all(
+      orders.map(async order => {
+        const carts = await Cart.findAll({
+          where: {
+            orderId: order.id,
+          },
+          include:Product
+        });
+        return { ...order,carts }
+      })
+    );
+    res.json({ status: 'success', orders:ordersWithCarts })
+  }catch(err){
+    next(err)
   }
+}
+    
 }
 
 module.exports=userController

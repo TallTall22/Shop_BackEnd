@@ -1,6 +1,7 @@
-const {Product,Category}=require('../models')
+const {Product,Category,Cart,User}=require('../models')
 const {getOffset,getPagination}=require('../helpers/pagination-helper')
 const { Op } = require('sequelize')
+
 const productController={
   getProducts:(req,res,next)=>{
     DEFAULT_LIMIT=9
@@ -71,7 +72,149 @@ const productController={
       res.json({status:'success',product,isFavorited})
     })
     .catch(err=>next(err))
+  },
+  getPopularProduct: async (req, res, next) => {
+  try {
+    // 取得所有購物車記錄
+    const carts = await Cart.findAll({
+      include: [Product], 
+      raw: true,
+      nest: true
+    });
+
+    // 計算每個商品的銷售總數量
+    const productSales = {};
+    await carts.forEach(cart => {
+      const { productId, quantity } = cart;
+      if (!productSales[productId]) {
+        productSales[productId] = 0;
+      }
+      productSales[productId] += quantity;
+    });
+
+    // 將 productSales 轉換為包含商品ID和銷量的陣列
+    const productSalesArray = Object.keys(productSales).map(productId => ({
+      productId: parseInt(productId, 10),
+      sales: productSales[productId]
+    }));
+
+    // 根據銷量排序，找出銷量最多的前十個商品ID
+    const popularProductIds = productSalesArray
+      .sort((a, b) => b.sales - a.sales)
+      .slice(0, 10)
+      .map(item => item.productId);
+
+    // 根據商品ID查詢商品的詳細資料，並保持銷量排序
+    const popularProducts = await Promise.all(popularProductIds.map(async productId =>
+      Product.findByPk(productId, {
+        include:Category,
+        raw: true,
+        nest: true
+      })
+    ));
+
+    return res.json({ status: 'success', products:popularProducts });
+  } catch (err) {
+    next(err);
   }
+},
+  getManPopularProduct:async(req,res,next)=>{
+  try {
+    // 取得所有購物車記錄
+    const carts = await Cart.findAll({
+      include: [Product, User],
+      raw: true,
+      nest: true
+    });
+
+    // 計算每個商品的銷售總數量
+    const productSales = {};
+    carts.forEach(cart => {
+      const { productId, quantity, User: { gender } } = cart;
+      
+      // 只計算男性使用者購買的商品銷售總量
+      if (gender === '男') {
+        if (!productSales[productId]) {
+          productSales[productId] = 0;
+        }
+        productSales[productId] += quantity;
+      }
+    });
+
+    // 將 productSales 轉換為包含商品ID和銷量的陣列
+    const productSalesArray = Object.keys(productSales).map(productId => ({
+      productId: parseInt(productId, 10),
+      sales: productSales[productId]
+    }));
+
+    // 根據銷量排序，找出銷量最多的前十個商品ID
+    const popularProductIds = productSalesArray
+      .sort((a, b) => b.sales - a.sales)
+      .slice(0, 10)
+      .map(item => item.productId);
+
+    // 根據商品ID查詢商品的詳細資料，並保持銷量排序
+    const popularProducts = await Promise.all(popularProductIds.map(async productId =>
+      Product.findByPk(productId, {
+        include:Category,
+        raw: true,
+        nest: true
+      })
+    ));
+    res.json({ status: 'success',products:popularProducts });
+  } catch (err) {
+    next(err);
+  }
+},
+getWomanPopularProduct:async(req,res,next)=>{
+  try {
+    // 取得所有購物車記錄
+    const carts = await Cart.findAll({
+      include: [Product, User],
+      raw: true,
+      nest: true
+    });
+
+    // 計算每個商品的銷售總數量
+    const productSales = {};
+    carts.forEach(cart => {
+      const { productId, quantity, User: { gender } } = cart;
+      
+      // 只計算男性使用者購買的商品銷售總量
+      if (gender === '女') {
+        if (!productSales[productId]) {
+          productSales[productId] = 0;
+        }
+        productSales[productId] += quantity;
+      }
+    });
+
+    // 將 productSales 轉換為包含商品ID和銷量的陣列
+    const productSalesArray = Object.keys(productSales).map(productId => ({
+      productId: parseInt(productId, 10),
+      sales: productSales[productId]
+    }));
+
+    // 根據銷量排序，找出銷量最多的前十個商品ID
+    const popularProductIds = productSalesArray
+      .sort((a, b) => b.sales - a.sales)
+      .slice(0, 10)
+      .map(item => item.productId);
+
+    // 根據商品ID查詢商品的詳細資料，並保持銷量排序
+    const popularProducts = await Promise.all(popularProductIds.map(async productId =>
+      Product.findByPk(productId, {
+        include:Category,
+        raw: true,
+        nest: true
+      })
+    ));
+    res.json({ status: 'success', products:popularProducts });
+  } catch (err) {
+    next(err);
+  }
+}
+  
 }
 
 module.exports=productController

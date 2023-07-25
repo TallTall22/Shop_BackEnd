@@ -10,5 +10,6 @@ router.get('/',publicAuthenticated,userController.getUser)
 router.delete('/favorites/:productId',authenticated,userController.deleteFavorite)
 router.post('/favorites',authenticated,userController.addFavorite)
 router.get('/favorites',authenticated,userController.getFavorites)
+router.get('/orders',authenticated,userController.getOrders)
 
 module.exports=router

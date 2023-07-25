@@ -11,7 +11,7 @@ module.exports = {
       name:faker.name.findName(),
       price:Math.floor(Math.random()*200)*10+200,
       description:faker.lorem.text(),
-      quantity:Math.floor(Math.random()*200),
+      quantity:Math.floor(Math.random()*200)+100,
       image:`https://loremflickr.com/400/300/clothes/?random=${Math.random() * 100}`,
       category_id:categories[Math.floor(Math.random() * categories.length)].id,
       is_selling:true,
