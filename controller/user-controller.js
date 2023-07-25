@@ -49,6 +49,13 @@ const userController={
       next(err)
     }
   },
+  getUser:(req,res,next)=>{
+    const user=req.user
+    if(!user) return res.json({status:'unAuthenticated',user:{isAdmin:false}}) 
+    User.findByPk(user.id)
+    .then(user=>res.json({status:'success',user}))
+    .catch(err=>next(err))
+  },
   addFavorite:(req,res,next)=>{
     const {productId}=req.body
     const user=req.user
@@ -90,6 +97,7 @@ const userController={
   getFavorites:(req, res, next)=>{
     const user=req.user
     const FavoritedProduct=user.FavoritedProduct
+    if(!FavoritedProduct[0]) return res.json({status:'success',message:'您還沒有收藏任何商品!'})
     return res.json({status:'success',FavoritedProduct})
   }
 }

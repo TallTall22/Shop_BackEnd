@@ -39,7 +39,7 @@ const productController={
       include:Category,
       limit,
       offset,
-      order:[[`${order}`,'asc']],
+      order:[[order,'asc']],
       raw:true,
       nest:true
     }),
@@ -65,7 +65,11 @@ const productController={
       nest:true,
       include:Category
     })
-    .then(product=>res.json({status:'success',product}))
+    .then(product=>{
+      const FavoritedProductId=req.user?.FavoritedProduct?req.user.FavoritedProduct.map(fr=>fr.id):[]
+      const isFavorited=FavoritedProductId.includes(product.id)
+      res.json({status:'success',product,isFavorited})
+    })
     .catch(err=>next(err))
   }
 }
