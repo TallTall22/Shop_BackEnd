@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
+    "username": "admin",
+    "password": "root1234",
     "database": "shop",
-    "host": "127.0.0.1",
+    "host": "AWS_MYSQL_URL",
     "dialect": "mysql"
   },
   "test": {
