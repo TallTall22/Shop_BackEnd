@@ -3,7 +3,7 @@
     "username": "admin",
     "password": "root1234",
     "database": "shop",
-    "host": "AWS_MYSQL_URL",
+    "host": "database-1.czlgs3jrdksy.ap-northeast-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
