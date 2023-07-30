@@ -14,6 +14,6 @@
     "dialect": "mysql"
   },
   "production": {
-    "host": "AWS_MYSQL_URL"
+    "use_env_variable": "AWS_MYSQL_URL"
   }
 }
