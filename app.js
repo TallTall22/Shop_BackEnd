@@ -40,11 +40,13 @@ app.use((req, res, next) => {
   }
 });
 
-
+const http = require('http').createServer(app)
+const io = require('socket.io')(http)
+require('./sockets')(io)
 
 //routes
 app.use('/api',routes)
 
-app.listen(port,()=>{
+http.listen(port,()=>{
   console.info(`App is listening on localhost:${port}`)
 })
