@@ -1,10 +1,10 @@
 module.exports = (io) => {
-  const messages=[{name:'Mary',message:'Hi'}]
+  const messages=[]
   io.on('connection', (socket) => {
 
     io.emit('message',messages)
 
-     socket.on("sendMessage", function (message) {
+     socket.on("sendMessage",  (message)=> {
         messages.push(message)
         io.emit("newMessage", message)
     })

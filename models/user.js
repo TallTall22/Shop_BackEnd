@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasMany(models.Order,{foreignKey:'userId'})
       User.hasMany(models.Cart,{foreignKey:'userId'})
-      User.hasMany(models.Chat,{foreignKey:'userId'})
       User.belongsToMany(models.Product,{
         through: models.Favorite,
         foreignKey:'userId',
