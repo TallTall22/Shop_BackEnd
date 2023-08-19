@@ -1,5 +1,6 @@
 const passport=require('passport')
 const LocalStrategy=require('passport-local').Strategy
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const passportJWT=require('passport-jwt')
 const bcrypt=require('bcryptjs')
 const {User,Product}=require('../models')
@@ -26,6 +27,16 @@ module.exports=app=>{
     });
   }
 ))
+
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret:process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: "https://main.d2n2j6lp46litu.amplifyapp.com/auth/google/callback"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    return;
+  }
+));
 
 const JWTStrategy = passportJWT.Strategy
 const ExtractJwt = passportJWT.ExtractJwt
