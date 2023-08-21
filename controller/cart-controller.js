@@ -1,5 +1,8 @@
+const { HmacSHA256 } = require('crypto-js')
+const Base64=require('crypto-js/enc-base64')
 const {Order,Cart,Product}=require('../models')
 const Sequelize=require('sequelize')
+const axios=require('axios')
 
 const cartControlller={
  getOrder:async(req,res,next)=>{
@@ -150,6 +153,87 @@ checkOrder: async (req, res, next) => {
   } catch (err) {
      next(err);
   }
+},
+linePayOrder:async(req,res,next)=>{
+  const { orderId } = req.body;
+  try{
+    const order=await Order.findByPk(orderId,{
+    raw:true,
+    nest:true
+  })
+  const carts=await Cart.findAll({
+    where:{
+      orderId:orderId
+    },
+    include:Product,
+    raw:true,
+    nest:true
+  })
+  const productPackages= await Promise.all(carts.map(c=>({
+    id:c.id,
+    amount:c.quantity*c.Product.price,
+    products:[{
+      name:c.Product.name,
+      quantity:c.quantity,
+      price:c.Product.price
+    }]
+  })))
+  const linePayBody={
+    amount:order.amount,
+    currency:'TWD',
+    packages:productPackages,
+    orderId:orderId.toString().padStart(10, '0'),
+    redirectUrls:{
+      confirmUrl:'https://main.d2n2j6lp46litu.amplifyapp.com/linepay/confirm',
+      cancelUrl:'https://main.d2n2j6lp46litu.amplifyapp.com/linepay/cancel'
+    }
+  }
+
+  const uri='/v3/payments/request'
+  const headers=cartControlller.createSignature(uri,linePayBody)
+  const url='https://sandbox-api-pay.line.me/v3/payments/request'
+  const linePayRes=await axios.post(url,linePayBody,{headers})
+  if(linePayRes?.data?.returnCode==='0000'){
+    const paidUrl=linePayRes.data.info.paymentUrl.web
+    return res.json({status:'success',paidUrl:paidUrl})
+  }
+  }catch(err){
+    next(err)
+  }
+},
+confirmLinePayOrder:async(req,res,next)=>{
+  const {transactionId,orderId}=req.query
+  try{
+    const numberOrderId=parseInt(Number(orderId),10)
+  const order=await Order.findByPk(numberOrderId)
+  const linePayBody={
+    amount:order.amount,
+    currency:'TWD'
+  }
+  const uri=`/v3/payments/${transactionId}/confirm`
+  const headers=cartControlller.createSignature(uri,linePayBody)
+  const url=`https://sandbox-api-pay.line.me/v3/payments/${transactionId}/confirm`
+  const linePayRes=await axios.post(url,linePayBody,{headers})
+  
+ if(linePayRes?.data?.returnCode==='0000'){
+    await order.update({isPaid:true})
+    return res.json({status:'success',order})
+  }
+  }catch(err){
+    next(err)
+  }
+},
+createSignature:(uri,linePayBody)=>{
+  const nonce=new Date().getTime()
+  const string=`${process.env.LINE_PAY_SECRET_KEY}${uri}${JSON.stringify(linePayBody)}${nonce}`
+  const signature=Base64.stringify(HmacSHA256(string,process.env.LINE_PAY_SECRET_KEY))
+  const headers={
+    'Content-Type':'application/json',
+    'X-LINE-ChannelId':process.env.LINE_PAY_ID,
+    'X-LINE-Authorization-Nonce':nonce,
+    'X-LINE-Authorization':signature
+  }
+  return headers
 }
 }
 
