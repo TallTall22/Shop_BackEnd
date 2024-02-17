@@ -1,0 +1,452 @@
+[
+  {
+    "name": "涼爽短袖",
+    "price": 500,
+    "description": "適合夏日穿著的舒適短袖上衣",
+    "quantity": 100,
+    "image": "https://plus.unsplash.com/premium_photo-1661288446665-273af24fe94b?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 1,
+    "is_selling": true
+  },
+  {
+    "name": "時尚外套",
+    "price": 1200,
+    "description": "帶有時尚元素的外套，適合春秋季節穿著",
+    "quantity": 80,
+    "image": "https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 2,
+    "is_selling": true
+  },
+  {
+    "name": "保暖毛衣",
+    "price": 800,
+    "description": "柔軟舒適的毛衣，適合冬季保暖",
+    "quantity": 70,
+    "image": "https://images.unsplash.com/photo-1581497396202-5645e76a3a8e?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 3,
+    "is_selling": true
+  },
+  {
+    "name": "修身牛仔褲",
+    "price": 1000,
+    "description": "修身版型的牛仔褲，顯瘦效果佳",
+    "quantity": 90,
+    "image": "https://images.unsplash.com/photo-1546635834-78554e816d55?q=80&w=2056&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 4,
+    "is_selling": true
+  },
+  {
+    "name": "時尚短褲",
+    "price": 700,
+    "description": "時尚休閒的短褲，適合夏日穿搭",
+    "quantity": 120,
+    "image": "https://images.unsplash.com/photo-1473351528942-b35ae8d43e42?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 5,
+    "is_selling": true
+  },
+  {
+    "name": "優雅連身洋裝",
+    "price": 1500,
+    "description": "優雅設計的連身洋裝，適合各種場合",
+    "quantity": 60,
+    "image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1773&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 6,
+    "is_selling": true
+  },
+  {
+    "name": "時尚配飾",
+    "price": 300,
+    "description": "潮流時尚的配飾，為你的穿搭增添亮點",
+    "quantity": 150,
+    "image": "https://images.unsplash.com/photo-1559563458-527698bf5295?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 7,
+    "is_selling": true
+  },
+  {
+    "name": "舒適T恤",
+    "price": 250,
+    "description": "舒適透氣的T恤，適合日常穿搭",
+    "quantity": 95,
+    "image": "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dCUyMHNoaXJ0fGVufDB8MHwwfHx8MA%3D%3D",
+    "category_id": 1,
+    "is_selling": true
+  },
+  {
+    "name": "時尚風衣",
+    "price": 1800,
+    "description": "潮流時尚的風衣，簡約大方",
+    "quantity": 75,
+    "image": "https://plus.unsplash.com/premium_photo-1661723350019-cc7e82918069?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 2,
+    "is_selling": true
+  },
+  {
+    "name": "保暖羊毛衫",
+    "price": 1600,
+    "description": "高品質羊毛衫，保暖性佳",
+    "quantity": 85,
+    "image": "https://images.unsplash.com/photo-1588271968087-4c51abe05afc?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 3,
+    "is_selling": true
+  },
+  {
+    "name": "寬鬆牛仔褲",
+    "price": 700,
+    "description": "休閒寬鬆的牛仔褲，舒適度一流",
+    "quantity": 110,
+    "image": "https://plus.unsplash.com/premium_photo-1691367279313-71af7ba83f2d?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 4,
+    "is_selling": true
+  },
+  {
+    "name": "休閒短褲",
+    "price": 300,
+    "description": "輕鬆休閒的短褲，適合戶外活動",
+    "quantity": 130,
+    "image": "https://images.unsplash.com/photo-1534957695859-1a634d9ca58a?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 5,
+    "is_selling": true
+  },
+  {
+    "name": "優雅長裙",
+    "price": 1800,
+    "description": "優雅設計的長裙，展現女性魅力",
+    "quantity": 65,
+    "image": "https://images.unsplash.com/photo-1509182469511-7f0b50bfa63e?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 6,
+    "is_selling": true
+  },
+  {
+    "name": "精緻項鍊",
+    "price": 400,
+    "description": "精緻設計的項鍊，突顯氣質",
+    "quantity": 140,
+    "image": "https://images.unsplash.com/photo-1620656798579-1984d9e87df7?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 7,
+    "is_selling": true
+  },
+  {
+    "name": "休閒POLO衫",
+    "price": 450,
+    "description": "休閒風格的POLO衫，簡約時尚",
+    "quantity": 100,
+    "image": "https://images.unsplash.com/photo-1586363090844-099253d6a1cb?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 1,
+    "is_selling": true
+  },
+  {
+    "name": "酷帥飛行外套",
+    "price": 1900,
+    "description": "酷帥風格的飛行外套，潮流型男必備",
+    "quantity": 80,
+    "image": "https://images.unsplash.com/photo-1602525582399-7ef5f604ff7e?q=80&w=1948&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 2,
+    "is_selling": true
+  },
+  {
+    "name": "時尚羽絨背心",
+    "price": 900,
+    "description": "時尚潮流的羽絨背心，百搭必備單品",
+    "quantity": 100,
+    "image": "https://images.unsplash.com/photo-1454880128565-5bd5cca663d4?q=80&w=1788&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 3,
+    "is_selling": true
+  },
+  {
+    "name": "牛仔裙",
+    "price": 600,
+    "description": "經典百搭的牛仔裙，展現時尚魅力",
+    "quantity": 90,
+    "image": "https://images.unsplash.com/photo-1525699105159-12a8e7407295?q=80&w=1772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 6,
+    "is_selling": true
+  },
+  {
+    "name": "時尚手鍊",
+    "price": 250,
+    "description": "時尚個性的手鍊，點綴你的手腕",
+    "quantity": 160,
+    "image": "https://images.unsplash.com/photo-1619119069152-a2b331eb392a?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 7,
+    "is_selling": true
+  },
+  {
+    "name": "舒適襯衫",
+    "price": 600,
+    "description": "舒適休閒的襯衫，適合日常穿搭",
+    "quantity": 105,
+    "image": "https://plus.unsplash.com/premium_photo-1682430259342-427ec43ebc38?q=80&w=2029&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 1,
+    "is_selling": true
+  },
+  {
+    "name": "時尚皮夾克",
+    "price": 1500,
+    "description": "時尚潮流的皮夾克，帥氣十足",
+    "quantity": 90,
+    "image": "https://images.unsplash.com/photo-1568825450279-8104dddf6bd8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 2,
+    "is_selling": true
+  },
+  {
+    "name": "保暖羽絨服",
+    "price": 2000,
+    "description": "保暖性極佳的羽絨服，抗寒必備",
+    "quantity": 50,
+    "image": "https://images.unsplash.com/photo-1597460944367-fcb5142ba49c?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 3,
+    "is_selling": true
+  },
+  {
+    "name": "修身西褲",
+    "price": 1200,
+    "description": "修身版型的西褲，職場必備",
+    "quantity": 100,
+    "image": "https://images.unsplash.com/photo-1624378440070-950d99e25830?q=80&w=1928&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 4,
+    "is_selling": true
+  },
+  {
+    "name": "運動短褲",
+    "price": 400,
+    "description": "運動休閒的短褲，舒適透氣",
+    "quantity": 115,
+    "image": "https://images.unsplash.com/photo-1534477200024-a3149001056a?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 5,
+    "is_selling": true
+  },
+  {
+    "name": "優雅晚禮服",
+    "price": 2000,
+    "description": "優雅迷人的晚禮服，閃耀舞台",
+    "quantity": 55,
+    "image": "https://images.unsplash.com/photo-1568251188392-ae32f898cb3b?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 6,
+    "is_selling": true
+  },
+  {
+    "name": "時尚手錶",
+    "price": 800,
+    "description": "時尚潮流的手錶，彰顯品味",
+    "quantity": 135,
+    "image": "https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=1999&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 7,
+    "is_selling": true
+  },
+  {
+    "name": "精緻耳環",
+    "price": 350,
+    "description": "精緻時尚的耳環，展現個性魅力",
+    "quantity": 140,
+    "image": "https://images.unsplash.com/photo-1629224316810-9d8805b95e76?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 7,
+    "is_selling": true
+  },
+  {
+    "name": "清涼背心",
+    "price": 300,
+    "description": "舒適透氣的清涼背心，適合夏日穿搭",
+    "quantity": 125,
+    "image": "https://images.unsplash.com/photo-1521338488115-be37accc5bd6?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 1,
+    "is_selling": true
+  },
+  {
+    "name": "時尚皮衣",
+    "price": 1800,
+    "description": "時尚個性的皮衣，街頭潮流",
+    "quantity": 85,
+    "image": "https://images.unsplash.com/photo-1583854608741-45fc4a88fe1f?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 2,
+    "is_selling": true
+  },
+  {
+    "name": "舒適羽絨背心",
+    "price": 1000,
+    "description": "輕薄保暖的羽絨背心，秋冬必備",
+    "quantity": 95,
+    "image": "https://images.unsplash.com/photo-1641933002309-29803c298f16?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 3,
+    "is_selling": true
+  },
+  {
+    "name": "休閒寬褲",
+    "price": 600,
+    "description": "舒適休閒的寬褲，自在悠閒",
+    "quantity": 110,
+    "image": "https://images.unsplash.com/photo-1556488161-f2b636bab6b3?q=80&w=1773&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 4,
+    "is_selling": true
+  },
+  {
+    "name": "運動緊身褲",
+    "price": 400,
+    "description": "彈性舒適的運動緊身褲，動作自如",
+    "quantity": 120,
+    "image": "https://images.unsplash.com/photo-1626026397008-3316047db4fc?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 5,
+    "is_selling": true
+  },
+  {
+    "name": "浪漫長裙",
+    "price": 1500,
+    "description": "浪漫優雅的長裙，適合約會穿搭",
+    "quantity": 70,
+    "image": "https://images.unsplash.com/photo-1562779198-651c8b760c00?q=80&w=1765&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 6,
+    "is_selling": true
+  },
+  {
+    "name": "時尚手提包",
+    "price": 400,
+    "description": "時尚潮流的手提包，搭配各種服裝",
+    "quantity": 130,
+    "image": "https://images.unsplash.com/photo-1615206928955-ce0ffbb7ca5a?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 7,
+    "is_selling": true
+  },
+  {
+    "name": "時尚短袖POLO衫",
+    "price": 350,
+    "description": "時尚休閒的短袖POLO衫，夏日必備",
+    "quantity": 100,
+    "image": "https://images.unsplash.com/photo-1626753846051-29b988f34fd4?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 1,
+    "is_selling": true
+  },
+  {
+    "name": "商務西裝",
+    "price": 2000,
+    "description": "專業商務的西裝套裝，展現成熟魅力",
+    "quantity": 60,
+    "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 2,
+    "is_selling": true
+  },
+  {
+    "name": "保暖羽絨大衣",
+    "price": 2500,
+    "description": "極致保暖的羽絨大衣，冬季的最佳選擇",
+    "quantity": 40,
+    "image": "https://images.unsplash.com/photo-1556098539-3019e1bdf05e?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 3,
+    "is_selling": true
+  },
+  {
+    "name": "正裝西褲",
+    "price": 1500,
+    "description": "正式場合的正裝西褲，展現穩重品味",
+    "quantity": 80,
+    "image": "https://images.unsplash.com/photo-1624378440847-4a64ee1a889d?q=80&w=1764&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D.jpg",
+    "category_id": 4,
+    "is_selling": true
+  },
+  {
+    "name": "運動長褲",
+    "price": 600,
+    "description": "運動休閒的長褲，自由舒適",
+    "quantity": 90,
+    "image": "https://images.unsplash.com/photo-1619030945899-c4307ae42479?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 5,
+    "is_selling": true
+  },
+  {
+    "name": "晚宴禮服",
+    "price": 3000,
+    "description": "華麗迷人的晚宴禮服，璀璨夜晚",
+    "quantity": 50,
+    "image": "https://images.unsplash.com/photo-1517111856508-8a6984d65c75?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 6,
+    "is_selling": true
+  },
+  {
+    "name": "精緻戒指",
+    "price": 500,
+    "description": "精緻時尚的戒指，點綴指尖",
+    "quantity": 110,
+    "image": "https://images.unsplash.com/photo-1512163143273-bde0e3cc7407?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 7,
+    "is_selling": true
+  },
+  {
+    "name": "針織毛衣",
+    "price": 700,
+    "description": "舒適保暖的針織毛衣，秋冬時尚必備",
+    "quantity": 120,
+    "image": "https://images.unsplash.com/photo-1512117245022-861aeca0d689?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 3,
+    "is_selling": true
+  },
+  {
+    "name": "西式短裙",
+    "price": 600,
+    "description": "簡約時尚的西式短裙，展現俐落魅力",
+    "quantity": 70,
+    "image": "https://images.unsplash.com/photo-1582142306909-195724d33ffc?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 6,
+    "is_selling": true
+  },
+  {
+    "name": "韓版時尚襯衫",
+    "price": 450,
+    "description": "韓版時尚的襯衫，簡約清新",
+    "quantity": 90,
+    "image": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 1,
+    "is_selling": true
+  },
+  {
+    "name": "風衣背心",
+    "price": 800,
+    "description": "時尚潮流的風衣背心，秋冬必備",
+    "quantity": 70,
+    "image": "https://images.unsplash.com/photo-1530653870565-465a2b1d3f8d?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 2,
+    "is_selling": true
+  },
+  {
+    "name": "羊毛外套",
+    "price": 1200,
+    "description": "高品質羊毛外套，保暖時尚",
+    "quantity": 100,
+    "image": "https://images.unsplash.com/photo-1583314965945-c5e74719cfa8?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 3,
+    "is_selling": true
+  },
+  {
+    "name": "牛仔工裝褲",
+    "price": 800,
+    "description": "時尚實用的牛仔工裝褲，帥氣舒適",
+    "quantity": 110,
+    "image": "https://images.unsplash.com/photo-1625177602406-6ed44fcc8ef2?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 4,
+    "is_selling": true
+  },
+  {
+    "name": "運動長褲",
+    "price": 500,
+    "description": "舒適休閒的運動長褲，運動必備",
+    "quantity": 120,
+    "image": "https://images.unsplash.com/photo-1616360599249-c87cd5bd9f3f?q=80&w=1984&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 5,
+    "is_selling": true
+  },
+  {
+    "name": "晚禮服",
+    "price": 2500,
+    "description": "高貴華麗的晚禮服，專屬時刻的穿著",
+    "quantity": 60,
+    "image": "https://images.unsplash.com/photo-1551084804-4b60b3c10f9e?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 6,
+    "is_selling": true
+  },
+  {
+    "name": "時尚手袋",
+    "price": 600,
+    "description": "時尚個性的手袋，彰顯品味",
+    "quantity": 130,
+    "image": "https://images.unsplash.com/photo-1566150902887-9679ecc155ba?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category_id": 7,
+    "is_selling": true
+  }
+]
