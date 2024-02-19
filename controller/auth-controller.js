@@ -13,7 +13,7 @@ const authController = {
       const client = new google.auth.OAuth2({
         clientId: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        redirectUri: 'https://main.d2n2j6lp46litu.amplifyapp.com/auth/google/callback',
+        redirectUri: 'https://main.d2s608lr9z6qmo.amplifyapp.com/auth/google/callback',
       });
 
       const { tokens } = await client.getToken(authCode);

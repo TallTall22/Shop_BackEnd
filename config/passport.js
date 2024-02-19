@@ -31,7 +31,7 @@ module.exports=app=>{
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret:process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "https://main.d2n2j6lp46litu.amplifyapp.com/auth/google/callback"
+    callbackURL: "https://main.d2s608lr9z6qmo.amplifyapp.com/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
     return;

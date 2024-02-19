@@ -226,8 +226,8 @@ const cartController = {
         packages: productPackages,
         orderId: orderId.toString().padStart(10, '0'),
         redirectUrls: {
-          confirmUrl: 'https://main.d2n2j6lp46litu.amplifyapp.com/linepay/confirm',
-          cancelUrl: 'https://main.d2n2j6lp46litu.amplifyapp.com/linepay/cancel',
+          confirmUrl: 'https://main.d2s608lr9z6qmo.amplifyapp.com/linepay/confirm',
+          cancelUrl: 'https://main.d2s608lr9z6qmo.amplifyapp.com/linepay/cancel',
         },
       };
 
