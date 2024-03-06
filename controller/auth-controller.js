@@ -48,7 +48,7 @@ const authController = {
           name: newUser.name,
           account: newUser.account,
           email: newUser.email,
-          isAdmin: user.isAdmin,
+          isAdmin: false,
           createdAt: newUser.createdAt,
           updatedAt: newUser.updatedAt,
         };
