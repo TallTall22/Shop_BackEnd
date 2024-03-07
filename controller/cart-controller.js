@@ -32,7 +32,7 @@ const cartController = {
         nest: true,
       });
 
-      if (!carts) {
+      if (carts.length<1) {
         return res.json({ status: 'success', message: '您的購物車還沒有任何商品喔!' });
       }
 
